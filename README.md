@@ -1,11 +1,11 @@
 #iOS database framework based on sqlite3(基于sqlite3的iOS数据库存储框架)
 
-在iOS开发中，如果使用到数据库来存储数据，使用的比较多的是FMDB或者CoreData，或者直接使用sqlite3的库。但是各种配置比较麻烦，或者需要自己写sql语句。我就想存个对象，要这么麻烦吗？所以GYDB出现啦，使用起来简单方便，类似存储对象的操作只要写:
+在iOS开发中，如果使用到数据库来存储数据，使用的比较多的是FMDB或者CoreData，或者直接使用sqlite3。但是各种配置比较麻烦，或者需要自己写sql语句。我就想存个对象，要这么麻烦吗？所以GYDB出现啦，使用起来简单方便，类似存储对象的操作只要写:
 
 ```
 [obj gy_insert];
 ```
-就能插入一条数据到表中。小伙伴们快来星一下呗。
+就能插入一条数据到表中。觉得不错的话可以在github上星一下。
 
 GitHub: [https://github.com/ygyalone](https://github.com/ygyalone)
 
@@ -43,13 +43,14 @@ Feedback: [ygy9916730@163.com](mailto:ygy9916730@163.com)
 ```
 pod 'GYDB'
 ```
-> 如果没有搜索到GYDB,请更新本地podSpec:
+> 如果没有搜索到GYDB,请删除本地缓存后更新podSpec:
 
 ```
+rm -rf ~/Library/Caches/CocoaPods
 pod repo update
 ```
 
->注意:不使用pod的小伙伴需要手动添加libsqlite3.tbd的依赖
+>注意:不使用pod安装的小伙伴需要手动添加libsqlite3.tbd的依赖
 
 <a id="config_ID"></a>
 #基本配置(config)
