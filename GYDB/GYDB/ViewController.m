@@ -7,9 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "GYDatabaseManager.h"
-#import "NSObject+GYDB.h"
-#import "GYDBCondition.h"
+#import "GYDB.h"
 
 @interface Person : NSObject
 @property (nonatomic, strong) NSString *name;

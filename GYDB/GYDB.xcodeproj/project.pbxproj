@@ -49,6 +49,7 @@
 /* Begin PBXFileReference section */
 		573B59E61E7013F3005C9F03 /* GYDBCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYDBCondition.h; sourceTree = "<group>"; };
 		573B59E71E7013F3005C9F03 /* GYDBCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYDBCondition.m; sourceTree = "<group>"; };
+		57E89BB71E712EE00038F94B /* GYDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYDB.h; sourceTree = "<group>"; };
 		5A50005A1E6BD22F0059132F /* GYDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GYDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A50005E1E6BD22F0059132F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5A5000601E6BD22F0059132F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -190,6 +191,7 @@
 		5A5000901E6BD26A0059132F /* GYDB */ = {
 			isa = PBXGroup;
 			children = (
+				57E89BB71E712EE00038F94B /* GYDB.h */,
 				5A5000911E6BD26A0059132F /* GYDatabaseManager */,
 				5A5000B01E6BD26A0059132F /* NSObject+GYDB */,
 				573B59E51E7013F3005C9F03 /* GYDBCondition */,
