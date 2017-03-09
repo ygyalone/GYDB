@@ -56,33 +56,33 @@ pod repo update
 ##通用配置
 > 是否开启日志(默认开启):
 
-```
+```objc
 //关闭日志
 DBManager.openLog = NO;
 ```
 > 设置异步回调时的队列,默认为manager的异步队列
 
-```
+```objc
 //设置在主线程中回调block
 DBManager.completionQueue = dispatch_get_main_queue();
 ```
 
 >打开(创建)数据库:默认会打开(创建)Documents/gydb/gydb.sqlite路径下的数据库
 
-```
+```objc
 [DBManager openDatabase:dbPath];
 ```
 
 >关闭数据库
 
-```
+```objc
 [DBManager closeDatabase:dbPath];
 ```
 
 ##存储配置
 > 自定义主键值
 
-```
+```objc
 - (NSString *)gy_customPrimaryKeyValue {
     return @"456";
 }
@@ -90,7 +90,7 @@ DBManager.completionQueue = dispatch_get_main_queue();
 
 > 自定义对象关联(返回自定义对象属性的类型)
 
-```
+```objc
 + (NSDictionary<NSString *,Class> *)gy_customClass {
     return @{@"bestFriend":[Person class],
              @"favoritePet":[Pet class]};
@@ -99,7 +99,7 @@ DBManager.completionQueue = dispatch_get_main_queue();
 
 > 对象数组关联(返回数组中元素的类型,不管是自定义类型还是支持的NS类型,都需要返回)
 
-```
+```objc
 + (NSDictionary<NSString *,Class> *)gy_classInArray {
     return @{@"nickNames":[NSString class],
              @"favoriteNums":[NSNumber class],
@@ -113,25 +113,25 @@ DBManager.completionQueue = dispatch_get_main_queue();
 #表操作(table operate)
 > 检查表是否存在
 
-```
+```objc
 BOOL exist = [Person gy_tableExistsWithError:nil];
 ```
 
 > 创建表
 
-```
+```objc
 [Person gy_createTable];
 ```
 
 > 删除表
 
-```
+```objc
 [Person gy_dropTable];
 ```
 
 > 更新表(只增加旧表没有的字段)
 
-```
+```objc
 [Person gy_updateTable];
 ```
 <a id="insert_ID"></a>
@@ -139,13 +139,13 @@ BOOL exist = [Person gy_tableExistsWithError:nil];
 ##插入单条数据
 > 同步方法:
 
-```
+```objc
 [person gy_insert];
 ```
 
 >异步方法:
 
-```
+```objc
 [person gy_insertWithCompletion:^(GYDBError *error) {
 	if (error) {
 		//succeed
@@ -158,13 +158,13 @@ BOOL exist = [Person gy_tableExistsWithError:nil];
 ##插入多条数据
 > 同步方法:
 
-```
+```objc
 GYDBError *error = [[GYDatabaseManager sharedManager] insertObjs:persons];
 ```
 
 > 异步方法:
 
-```
+```objc
 [DBManager insertObjs:persons completion:^(GYDBError *error) {
         
 }];
@@ -175,12 +175,12 @@ GYDBError *error = [[GYDatabaseManager sharedManager] insertObjs:persons];
 ##根据对象删除
 >同步方法:
 
-```
+```objc
 [person gy_delete];
 ```
 >异步方法:
 
-```
+```objc
 [person gy_deleteWithCompletion:^(GYDBError *error) {
         
 }];
@@ -188,7 +188,7 @@ GYDBError *error = [[GYDatabaseManager sharedManager] insertObjs:persons];
 ##根据类删除
 >同步方法:
 
-```
+```objc
 //删除Person表中所有数据
 [Person gy_deleteAll]
 
@@ -198,7 +198,7 @@ GYDBError *error = [[GYDatabaseManager sharedManager] insertObjs:persons];
 ```
 >异步方法:
 
-```
+```objc
 //删除Person表中所有的行
 [Person gy_deleteAllWithCompletion:^(GYDBError *error) {
             
@@ -213,14 +213,14 @@ GYDBError *error = [[GYDatabaseManager sharedManager] insertObjs:persons];
 #查询(query)
 >同步方法:
 
-```
+```objc
 //查询Person表中主键大于456的行,根据age逆序排序
 [Person gy_queryObjsWithCondition:DBCondition.Where_PK().Gt(@"456").OrderBy_P(age).Descending() error:&error];
 ```
 
 >异步方法:
 
-```
+```objc
 //查询Person表中所有的行
 [Person gy_queryObjsWithCondition:nil completion:^(NSArray *result, GYDBError *error) {
             
@@ -230,14 +230,14 @@ GYDBError *error = [[GYDatabaseManager sharedManager] insertObjs:persons];
 #修改(update)
 >同步方法:
 
-```
+```objc
 //更新除age之外的所有属性
 [person gy_updateWithExcludeColumns:@[@"age"]];
 ```
 
 >异步方法:
 
-```
+```objc
 //更新所有属性
 [person gy_updateWithExcludeColumns:nil completion:^(GYDBError *error) {
                 
@@ -250,12 +250,12 @@ GYDBError *error = [[GYDatabaseManager sharedManager] insertObjs:persons];
 >
 >同步方法:
 
-```
+```objc
 [obj gy_save];
 ```
 >异步方法:
 
-```
+```objc
 [obj gy_saveWithCompletion:^(GYDBError *error) {
         
 }];
@@ -265,12 +265,12 @@ GYDBError *error = [[GYDatabaseManager sharedManager] insertObjs:persons];
 #其它操作(other)
 >获取当前打开的数据库路径,没有则返回nil
 
-```
+```objc
 DBManager.databasePath;
 ```
 >获取表中数据行数
 
-```
+```objc
 //查询Person表中的数据行数
 NSInteger rowCount1 = [Person gy_countWithCondition:nil error:&error];
 
@@ -282,7 +282,7 @@ NSInteger rowCount2 = [Person gy_countWithCondition:DBCondition.Where_P(age).GtO
 #链式条件配置(condition)
 >使用链式语法能够方便地配置执行Sql操作时的条件.举例:
 
-```
+```objc
 //查询name以Alone结尾或者age大于等于24,根据age降序排序的从索引0开始的10条数据...
 [Person gy_queryObjsWithCondition:DBCondition.Where_P(name).Like(@"%Alone").Or_P(age).GtOrEq(@24).OrderBy_P(age).Descending().Limit(0,10) error:&error]
 ```
