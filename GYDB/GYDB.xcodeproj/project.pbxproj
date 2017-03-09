@@ -1,0 +1,721 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		573B59E81E7013F3005C9F03 /* GYDBCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 573B59E71E7013F3005C9F03 /* GYDBCondition.m */; };
+		5A50005F1E6BD22F0059132F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A50005E1E6BD22F0059132F /* main.m */; };
+		5A5000621E6BD22F0059132F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5000611E6BD22F0059132F /* AppDelegate.m */; };
+		5A5000651E6BD22F0059132F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5000641E6BD22F0059132F /* ViewController.m */; };
+		5A5000681E6BD22F0059132F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A5000661E6BD22F0059132F /* Main.storyboard */; };
+		5A50006A1E6BD2300059132F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A5000691E6BD2300059132F /* Assets.xcassets */; };
+		5A50006D1E6BD2300059132F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A50006B1E6BD2300059132F /* LaunchScreen.storyboard */; };
+		5A5000781E6BD2300059132F /* GYDBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5000771E6BD2300059132F /* GYDBTests.m */; };
+		5A5000831E6BD2300059132F /* GYDBUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5000821E6BD2300059132F /* GYDBUITests.m */; };
+		5A5000B31E6BD26A0059132F /* GYDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5000931E6BD26A0059132F /* GYDatabaseManager.m */; };
+		5A5000B41E6BD26A0059132F /* GYDBErrorGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5000961E6BD26A0059132F /* GYDBErrorGenerator.m */; };
+		5A5000B51E6BD26A0059132F /* GYDBQueryHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5000991E6BD26A0059132F /* GYDBQueryHandler.m */; };
+		5A5000B71E6BD26A0059132F /* GYDBProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5000A01E6BD26A0059132F /* GYDBProperty.m */; };
+		5A5000B81E6BD26A0059132F /* GYDBSqlGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5000A21E6BD26A0059132F /* GYDBSqlGenerator.m */; };
+		5A5000B91E6BD26A0059132F /* GYSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5000A51E6BD26A0059132F /* GYSql.m */; };
+		5A5000BA1E6BD26A0059132F /* NSObject+GYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5000A81E6BD26A0059132F /* NSObject+GYExtension.m */; };
+		5A5000BB1E6BD26A0059132F /* GYDBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5000AB1E6BD26A0059132F /* GYDBUtil.m */; };
+		5A5000BC1E6BD26A0059132F /* GYDBError.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5000AF1E6BD26A0059132F /* GYDBError.m */; };
+		5A5000BD1E6BD26A0059132F /* NSObject+GYDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5000B21E6BD26A0059132F /* NSObject+GYDB.m */; };
+		5A5000C01E6BD4000059132F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5000BF1E6BD4000059132F /* libsqlite3.tbd */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5A5000741E6BD2300059132F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A5000521E6BD22F0059132F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A5000591E6BD22F0059132F;
+			remoteInfo = GYDB;
+		};
+		5A50007F1E6BD2300059132F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A5000521E6BD22F0059132F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A5000591E6BD22F0059132F;
+			remoteInfo = GYDB;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		573B59E61E7013F3005C9F03 /* GYDBCondition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYDBCondition.h; sourceTree = "<group>"; };
+		573B59E71E7013F3005C9F03 /* GYDBCondition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYDBCondition.m; sourceTree = "<group>"; };
+		5A50005A1E6BD22F0059132F /* GYDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GYDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A50005E1E6BD22F0059132F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5A5000601E6BD22F0059132F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5A5000611E6BD22F0059132F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5A5000631E6BD22F0059132F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		5A5000641E6BD22F0059132F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5A5000671E6BD22F0059132F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5A5000691E6BD2300059132F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5A50006C1E6BD2300059132F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5A50006E1E6BD2300059132F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A5000731E6BD2300059132F /* GYDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GYDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A5000771E6BD2300059132F /* GYDBTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYDBTests.m; sourceTree = "<group>"; };
+		5A5000791E6BD2300059132F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A50007E1E6BD2300059132F /* GYDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GYDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A5000821E6BD2300059132F /* GYDBUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GYDBUITests.m; sourceTree = "<group>"; };
+		5A5000841E6BD2300059132F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A5000921E6BD26A0059132F /* GYDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYDatabaseManager.h; sourceTree = "<group>"; };
+		5A5000931E6BD26A0059132F /* GYDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYDatabaseManager.m; sourceTree = "<group>"; };
+		5A5000951E6BD26A0059132F /* GYDBErrorGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYDBErrorGenerator.h; sourceTree = "<group>"; };
+		5A5000961E6BD26A0059132F /* GYDBErrorGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYDBErrorGenerator.m; sourceTree = "<group>"; };
+		5A5000981E6BD26A0059132F /* GYDBQueryHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYDBQueryHandler.h; sourceTree = "<group>"; };
+		5A5000991E6BD26A0059132F /* GYDBQueryHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYDBQueryHandler.m; sourceTree = "<group>"; };
+		5A50009F1E6BD26A0059132F /* GYDBProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYDBProperty.h; sourceTree = "<group>"; };
+		5A5000A01E6BD26A0059132F /* GYDBProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYDBProperty.m; sourceTree = "<group>"; };
+		5A5000A11E6BD26A0059132F /* GYDBSqlGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYDBSqlGenerator.h; sourceTree = "<group>"; };
+		5A5000A21E6BD26A0059132F /* GYDBSqlGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYDBSqlGenerator.m; sourceTree = "<group>"; };
+		5A5000A41E6BD26A0059132F /* GYSql.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYSql.h; sourceTree = "<group>"; };
+		5A5000A51E6BD26A0059132F /* GYSql.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYSql.m; sourceTree = "<group>"; };
+		5A5000A71E6BD26A0059132F /* NSObject+GYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+GYExtension.h"; sourceTree = "<group>"; };
+		5A5000A81E6BD26A0059132F /* NSObject+GYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+GYExtension.m"; sourceTree = "<group>"; };
+		5A5000AA1E6BD26A0059132F /* GYDBUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYDBUtil.h; sourceTree = "<group>"; };
+		5A5000AB1E6BD26A0059132F /* GYDBUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYDBUtil.m; sourceTree = "<group>"; };
+		5A5000AE1E6BD26A0059132F /* GYDBError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYDBError.h; sourceTree = "<group>"; };
+		5A5000AF1E6BD26A0059132F /* GYDBError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYDBError.m; sourceTree = "<group>"; };
+		5A5000B11E6BD26A0059132F /* NSObject+GYDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+GYDB.h"; sourceTree = "<group>"; };
+		5A5000B21E6BD26A0059132F /* NSObject+GYDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+GYDB.m"; sourceTree = "<group>"; };
+		5A5000BF1E6BD4000059132F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5A5000571E6BD22F0059132F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A5000C01E6BD4000059132F /* libsqlite3.tbd in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A5000701E6BD2300059132F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A50007B1E6BD2300059132F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		573B59E51E7013F3005C9F03 /* GYDBCondition */ = {
+			isa = PBXGroup;
+			children = (
+				573B59E61E7013F3005C9F03 /* GYDBCondition.h */,
+				573B59E71E7013F3005C9F03 /* GYDBCondition.m */,
+			);
+			path = GYDBCondition;
+			sourceTree = "<group>";
+		};
+		5A5000511E6BD22F0059132F = {
+			isa = PBXGroup;
+			children = (
+				5A50005C1E6BD22F0059132F /* GYDB */,
+				5A5000761E6BD2300059132F /* GYDBTests */,
+				5A5000811E6BD2300059132F /* GYDBUITests */,
+				5A50005B1E6BD22F0059132F /* Products */,
+				5A5000BE1E6BD4000059132F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5A50005B1E6BD22F0059132F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5A50005A1E6BD22F0059132F /* GYDB.app */,
+				5A5000731E6BD2300059132F /* GYDBTests.xctest */,
+				5A50007E1E6BD2300059132F /* GYDBUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5A50005C1E6BD22F0059132F /* GYDB */ = {
+			isa = PBXGroup;
+			children = (
+				5A5000901E6BD26A0059132F /* GYDB */,
+				5A5000631E6BD22F0059132F /* ViewController.h */,
+				5A5000641E6BD22F0059132F /* ViewController.m */,
+				5A50005D1E6BD22F0059132F /* Supporting Files */,
+			);
+			path = GYDB;
+			sourceTree = "<group>";
+		};
+		5A50005D1E6BD22F0059132F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5A5000601E6BD22F0059132F /* AppDelegate.h */,
+				5A5000611E6BD22F0059132F /* AppDelegate.m */,
+				5A5000661E6BD22F0059132F /* Main.storyboard */,
+				5A5000691E6BD2300059132F /* Assets.xcassets */,
+				5A50006B1E6BD2300059132F /* LaunchScreen.storyboard */,
+				5A50006E1E6BD2300059132F /* Info.plist */,
+				5A50005E1E6BD22F0059132F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5A5000761E6BD2300059132F /* GYDBTests */ = {
+			isa = PBXGroup;
+			children = (
+				5A5000771E6BD2300059132F /* GYDBTests.m */,
+				5A5000791E6BD2300059132F /* Info.plist */,
+			);
+			path = GYDBTests;
+			sourceTree = "<group>";
+		};
+		5A5000811E6BD2300059132F /* GYDBUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5A5000821E6BD2300059132F /* GYDBUITests.m */,
+				5A5000841E6BD2300059132F /* Info.plist */,
+			);
+			path = GYDBUITests;
+			sourceTree = "<group>";
+		};
+		5A5000901E6BD26A0059132F /* GYDB */ = {
+			isa = PBXGroup;
+			children = (
+				5A5000911E6BD26A0059132F /* GYDatabaseManager */,
+				5A5000B01E6BD26A0059132F /* NSObject+GYDB */,
+				573B59E51E7013F3005C9F03 /* GYDBCondition */,
+				5A5000AD1E6BD26A0059132F /* GYDBError */,
+			);
+			path = GYDB;
+			sourceTree = "<group>";
+		};
+		5A5000911E6BD26A0059132F /* GYDatabaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				5A5000921E6BD26A0059132F /* GYDatabaseManager.h */,
+				5A5000931E6BD26A0059132F /* GYDatabaseManager.m */,
+				5A5000941E6BD26A0059132F /* GYDBErrorGenerator */,
+				5A5000971E6BD26A0059132F /* GYDBQueryHandler */,
+				5A50009A1E6BD26A0059132F /* GYDBSqlGenerator */,
+				5A5000A91E6BD26A0059132F /* GYDBUtil */,
+			);
+			path = GYDatabaseManager;
+			sourceTree = "<group>";
+		};
+		5A5000941E6BD26A0059132F /* GYDBErrorGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				5A5000951E6BD26A0059132F /* GYDBErrorGenerator.h */,
+				5A5000961E6BD26A0059132F /* GYDBErrorGenerator.m */,
+			);
+			path = GYDBErrorGenerator;
+			sourceTree = "<group>";
+		};
+		5A5000971E6BD26A0059132F /* GYDBQueryHandler */ = {
+			isa = PBXGroup;
+			children = (
+				5A5000981E6BD26A0059132F /* GYDBQueryHandler.h */,
+				5A5000991E6BD26A0059132F /* GYDBQueryHandler.m */,
+			);
+			path = GYDBQueryHandler;
+			sourceTree = "<group>";
+		};
+		5A50009A1E6BD26A0059132F /* GYDBSqlGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				5A5000A11E6BD26A0059132F /* GYDBSqlGenerator.h */,
+				5A5000A21E6BD26A0059132F /* GYDBSqlGenerator.m */,
+				5A50009E1E6BD26A0059132F /* GYDBProperty */,
+				5A5000A31E6BD26A0059132F /* GYSql */,
+				5A5000A61E6BD26A0059132F /* NSObject+GYExtension */,
+			);
+			path = GYDBSqlGenerator;
+			sourceTree = "<group>";
+		};
+		5A50009E1E6BD26A0059132F /* GYDBProperty */ = {
+			isa = PBXGroup;
+			children = (
+				5A50009F1E6BD26A0059132F /* GYDBProperty.h */,
+				5A5000A01E6BD26A0059132F /* GYDBProperty.m */,
+			);
+			path = GYDBProperty;
+			sourceTree = "<group>";
+		};
+		5A5000A31E6BD26A0059132F /* GYSql */ = {
+			isa = PBXGroup;
+			children = (
+				5A5000A41E6BD26A0059132F /* GYSql.h */,
+				5A5000A51E6BD26A0059132F /* GYSql.m */,
+			);
+			path = GYSql;
+			sourceTree = "<group>";
+		};
+		5A5000A61E6BD26A0059132F /* NSObject+GYExtension */ = {
+			isa = PBXGroup;
+			children = (
+				5A5000A71E6BD26A0059132F /* NSObject+GYExtension.h */,
+				5A5000A81E6BD26A0059132F /* NSObject+GYExtension.m */,
+			);
+			path = "NSObject+GYExtension";
+			sourceTree = "<group>";
+		};
+		5A5000A91E6BD26A0059132F /* GYDBUtil */ = {
+			isa = PBXGroup;
+			children = (
+				5A5000AA1E6BD26A0059132F /* GYDBUtil.h */,
+				5A5000AB1E6BD26A0059132F /* GYDBUtil.m */,
+			);
+			path = GYDBUtil;
+			sourceTree = "<group>";
+		};
+		5A5000AD1E6BD26A0059132F /* GYDBError */ = {
+			isa = PBXGroup;
+			children = (
+				5A5000AE1E6BD26A0059132F /* GYDBError.h */,
+				5A5000AF1E6BD26A0059132F /* GYDBError.m */,
+			);
+			path = GYDBError;
+			sourceTree = "<group>";
+		};
+		5A5000B01E6BD26A0059132F /* NSObject+GYDB */ = {
+			isa = PBXGroup;
+			children = (
+				5A5000B11E6BD26A0059132F /* NSObject+GYDB.h */,
+				5A5000B21E6BD26A0059132F /* NSObject+GYDB.m */,
+			);
+			path = "NSObject+GYDB";
+			sourceTree = "<group>";
+		};
+		5A5000BE1E6BD4000059132F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A5000BF1E6BD4000059132F /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5A5000591E6BD22F0059132F /* GYDB */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A5000871E6BD2300059132F /* Build configuration list for PBXNativeTarget "GYDB" */;
+			buildPhases = (
+				5A5000561E6BD22F0059132F /* Sources */,
+				5A5000571E6BD22F0059132F /* Frameworks */,
+				5A5000581E6BD22F0059132F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GYDB;
+			productName = GYDB;
+			productReference = 5A50005A1E6BD22F0059132F /* GYDB.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5A5000721E6BD2300059132F /* GYDBTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A50008A1E6BD2300059132F /* Build configuration list for PBXNativeTarget "GYDBTests" */;
+			buildPhases = (
+				5A50006F1E6BD2300059132F /* Sources */,
+				5A5000701E6BD2300059132F /* Frameworks */,
+				5A5000711E6BD2300059132F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A5000751E6BD2300059132F /* PBXTargetDependency */,
+			);
+			name = GYDBTests;
+			productName = GYDBTests;
+			productReference = 5A5000731E6BD2300059132F /* GYDBTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5A50007D1E6BD2300059132F /* GYDBUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A50008D1E6BD2300059132F /* Build configuration list for PBXNativeTarget "GYDBUITests" */;
+			buildPhases = (
+				5A50007A1E6BD2300059132F /* Sources */,
+				5A50007B1E6BD2300059132F /* Frameworks */,
+				5A50007C1E6BD2300059132F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A5000801E6BD2300059132F /* PBXTargetDependency */,
+			);
+			name = GYDBUITests;
+			productName = GYDBUITests;
+			productReference = 5A50007E1E6BD2300059132F /* GYDBUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5A5000521E6BD22F0059132F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = YGY;
+				TargetAttributes = {
+					5A5000591E6BD22F0059132F = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 279PVQNPA3;
+						ProvisioningStyle = Automatic;
+					};
+					5A5000721E6BD2300059132F = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 279PVQNPA3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5A5000591E6BD22F0059132F;
+					};
+					5A50007D1E6BD2300059132F = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 279PVQNPA3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 5A5000591E6BD22F0059132F;
+					};
+				};
+			};
+			buildConfigurationList = 5A5000551E6BD22F0059132F /* Build configuration list for PBXProject "GYDB" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5A5000511E6BD22F0059132F;
+			productRefGroup = 5A50005B1E6BD22F0059132F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5A5000591E6BD22F0059132F /* GYDB */,
+				5A5000721E6BD2300059132F /* GYDBTests */,
+				5A50007D1E6BD2300059132F /* GYDBUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5A5000581E6BD22F0059132F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A50006D1E6BD2300059132F /* LaunchScreen.storyboard in Resources */,
+				5A50006A1E6BD2300059132F /* Assets.xcassets in Resources */,
+				5A5000681E6BD22F0059132F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A5000711E6BD2300059132F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A50007C1E6BD2300059132F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5A5000561E6BD22F0059132F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A5000BA1E6BD26A0059132F /* NSObject+GYExtension.m in Sources */,
+				5A5000BD1E6BD26A0059132F /* NSObject+GYDB.m in Sources */,
+				5A5000651E6BD22F0059132F /* ViewController.m in Sources */,
+				5A5000621E6BD22F0059132F /* AppDelegate.m in Sources */,
+				5A5000B41E6BD26A0059132F /* GYDBErrorGenerator.m in Sources */,
+				5A5000BB1E6BD26A0059132F /* GYDBUtil.m in Sources */,
+				5A5000B81E6BD26A0059132F /* GYDBSqlGenerator.m in Sources */,
+				573B59E81E7013F3005C9F03 /* GYDBCondition.m in Sources */,
+				5A5000B71E6BD26A0059132F /* GYDBProperty.m in Sources */,
+				5A5000BC1E6BD26A0059132F /* GYDBError.m in Sources */,
+				5A5000B31E6BD26A0059132F /* GYDatabaseManager.m in Sources */,
+				5A50005F1E6BD22F0059132F /* main.m in Sources */,
+				5A5000B91E6BD26A0059132F /* GYSql.m in Sources */,
+				5A5000B51E6BD26A0059132F /* GYDBQueryHandler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A50006F1E6BD2300059132F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A5000781E6BD2300059132F /* GYDBTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A50007A1E6BD2300059132F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A5000831E6BD2300059132F /* GYDBUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5A5000751E6BD2300059132F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A5000591E6BD22F0059132F /* GYDB */;
+			targetProxy = 5A5000741E6BD2300059132F /* PBXContainerItemProxy */;
+		};
+		5A5000801E6BD2300059132F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A5000591E6BD22F0059132F /* GYDB */;
+			targetProxy = 5A50007F1E6BD2300059132F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5A5000661E6BD22F0059132F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A5000671E6BD22F0059132F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5A50006B1E6BD2300059132F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A50006C1E6BD2300059132F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5A5000851E6BD2300059132F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5A5000861E6BD2300059132F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5A5000881E6BD2300059132F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 279PVQNPA3;
+				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
+				INFOPLIST_FILE = GYDB/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.myself.GYDB;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5A5000891E6BD2300059132F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 279PVQNPA3;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
+				INFOPLIST_FILE = GYDB/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.myself.GYDB;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5A50008B1E6BD2300059132F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 279PVQNPA3;
+				INFOPLIST_FILE = GYDBTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.myself.GYDBTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GYDB.app/GYDB";
+			};
+			name = Debug;
+		};
+		5A50008C1E6BD2300059132F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 279PVQNPA3;
+				INFOPLIST_FILE = GYDBTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.myself.GYDBTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GYDB.app/GYDB";
+			};
+			name = Release;
+		};
+		5A50008E1E6BD2300059132F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 279PVQNPA3;
+				INFOPLIST_FILE = GYDBUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.myself.GYDBUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = GYDB;
+			};
+			name = Debug;
+		};
+		5A50008F1E6BD2300059132F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 279PVQNPA3;
+				INFOPLIST_FILE = GYDBUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.myself.GYDBUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = GYDB;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5A5000551E6BD22F0059132F /* Build configuration list for PBXProject "GYDB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A5000851E6BD2300059132F /* Debug */,
+				5A5000861E6BD2300059132F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A5000871E6BD2300059132F /* Build configuration list for PBXNativeTarget "GYDB" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A5000881E6BD2300059132F /* Debug */,
+				5A5000891E6BD2300059132F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A50008A1E6BD2300059132F /* Build configuration list for PBXNativeTarget "GYDBTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A50008B1E6BD2300059132F /* Debug */,
+				5A50008C1E6BD2300059132F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A50008D1E6BD2300059132F /* Build configuration list for PBXNativeTarget "GYDBUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A50008E1E6BD2300059132F /* Debug */,
+				5A50008F1E6BD2300059132F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5A5000521E6BD22F0059132F /* Project object */;
+}
