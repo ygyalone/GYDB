@@ -46,7 +46,7 @@ pod 'GYDB'
 > 如果没有搜索到GYDB,请删除本地缓存后更新podSpec:
 
 ```
-rm -rf ~/Library/Caches/CocoaPods
+rm ~/Library/Caches/CocoaPods/search_index.json
 pod repo update
 ```
 
