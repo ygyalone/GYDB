@@ -43,11 +43,10 @@ Feedback: [ygy9916730@163.com](mailto:ygy9916730@163.com)
 ```
 pod 'GYDB'
 ```
-> 如果没有搜索到GYDB,请删除本地缓存后更新podSpec:
+> 如果没有搜索到GYDB,请删除本地缓存后再安装:
 
 ```
 rm ~/Library/Caches/CocoaPods/search_index.json
-pod repo update
 ```
 
 >注意:不使用pod安装的小伙伴需要手动添加libsqlite3.tbd的依赖
