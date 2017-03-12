@@ -1,11 +1,11 @@
 #iOS database framework based on sqlite3(基于sqlite3的iOS数据库存储框架)
 
-在iOS开发中，如果使用到数据库来存储数据，使用的比较多的是FMDB或者CoreData，或者直接使用sqlite3。但是各种配置比较麻烦，或者需要自己写sql语句。我就想存个对象，要这么麻烦吗？所以GYDB出现啦，使用起来简单方便，类似存储对象的操作只要写:
+在iOS开发中，如果使用到数据库来存储数据，使用比较多的是FMDB或者CoreData，或者直接使用sqlite3。但是各种配置比较麻烦，或者需要自己写sql语句。存储一个对象，为什么需要这么麻烦？如果使用GYDB，类似存储对象的操作只要写:
 
 ```
 [obj gy_insert];
 ```
-就能插入一条数据到表中。觉得不错的话可以在github上星一下。
+就能插入一条数据到表中，就是这么简单方便。觉得不错的话可以在github上星一下。
 
 GitHub: [https://github.com/ygyalone](https://github.com/ygyalone)
 
@@ -298,7 +298,7 @@ Nq|比较条件.不相等.|Where_P(name).Nq(@"ygy"):name不等于ygy|NSString * 
 Lt|比较条件.小于.|Where_P(age).Lt(@24):age小于24|NSString * NSNumber *
 Gt|比较条件.大于.|Where_P(age).Gt(@24):age大于24|NSString * NSNumber *
 LtOrEq|比较条件.小于等于.|Where_P(age).LtOrEq(@24):age小于等于24|NSString * NSNumber *
-GtOrEq|比较条件.大于等于.|Where_P(age).GtOrEq(@24):age大a于等于24|NSString * NSNumber *
+GtOrEq|比较条件.大于等于.|Where_P(age).GtOrEq(@24):age大于等于24|NSString * NSNumber *
 Like|通配符筛选条件.|Where_P(name).Like(@"%Alone"):根据通配符'%Alone'查询|NSString *
 And|与条件.|Where_P(name).Like(@"%Alone").And(@"age").Gt(@17):name满足通配符匹配,并且age大于17|NSString *
 And_P|与条件.和And相同,会自动匹配selector,方便输入.|Where_P(name).Like(@"%Alone").And_P(age).Gt(@17):name满足通配符匹配,并且age大于17|NSString *
