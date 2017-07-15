@@ -10,7 +10,7 @@ function gitPush() {
 
 #push new podSpec to cocoapods
 function podPush() {
-    pod trunk push *.podspec --allow-warnings --verbose --no-repo-update
+    pod trunk push *.podspec --allow-warnings --verbose
 }
 
 #green color echo

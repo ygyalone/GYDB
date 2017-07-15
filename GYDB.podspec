@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "GYDB"
-  s.version      = "1.0.4"
+  s.version      = "1.0.5"
   s.summary      = "iOS database framework based on sqlite3"
   s.homepage     = "https://github.com/ygyalone"
   s.license      = "MIT"
