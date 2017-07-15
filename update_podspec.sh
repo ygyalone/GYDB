@@ -43,6 +43,7 @@ fi
 
 #replace version tag
 sed -i "" "/s.version/s/=.*/= \"$tag\"/g" *.podspec
+sed -i "" "/s.source/s/:tag.*/:tag => \"$tag\"/g" *.podspec
 
 gitPush $tag
 podPush
