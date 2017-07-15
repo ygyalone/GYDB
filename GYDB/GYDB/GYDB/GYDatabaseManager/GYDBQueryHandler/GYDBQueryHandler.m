@@ -107,11 +107,6 @@
     sqlite3_finalize(stmt);
 }
 
-+ (const char *)getEncode:(const char*)encode {
-    NSString *encodeString = [NSString stringWithUTF8String:encode];
-    return [encodeString substringWithRange:[encodeString rangeOfString:@"\\b\\w+\\b" options:NSRegularExpressionSearch]].UTF8String;
-}
-
 + (GYDBProperty *)propInProps:(NSArray<GYDBProperty *> *)props byColumnName:(const char*)columnName {
     NSString *cName = [NSString stringWithUTF8String:columnName];
     __block GYDBProperty *prop;

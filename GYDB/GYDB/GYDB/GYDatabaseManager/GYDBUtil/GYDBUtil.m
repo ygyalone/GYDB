@@ -80,7 +80,11 @@
 
 + (const char *)getEncode:(const char*)encode {
     NSString *encodeString = [NSString stringWithUTF8String:encode];
-    return [encodeString substringWithRange:[encodeString rangeOfString:@"\\b\\w+\\b" options:NSRegularExpressionSearch]].UTF8String;
+    NSRange range = [encodeString rangeOfString:@"\\b\\w+\\b" options:NSRegularExpressionSearch];
+    if (range.location == NSNotFound) {
+        return "";
+    }
+    return [encodeString substringWithRange:range].UTF8String;
 }
 
 @end
