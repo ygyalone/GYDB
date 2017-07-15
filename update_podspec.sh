@@ -10,7 +10,7 @@ function gitPush() {
 
 #push new podSpec to cocoapods
 function podPush() {
-    pod trunk push *.podspec --allow-warnings --verbose
+    pod trunk push GYDB.podspec --allow-warnings --verbose
 }
 
 #green color echo
@@ -42,8 +42,8 @@ then
 fi
 
 #replace version tag
-sed -i "" "/s.version/s/=.*/= \"$tag\"/g" *.podspec
-sed -i "" "/s.source/s/:tag.*/:tag => \"$tag\"/g" *.podspec
+sed -i "" "/s.version/s/=.*/= \"$tag\"/g" GYDB.podspec
+sed -i "" "/s.source/s/:tag.*/:tag => \"$tag\"/g" GYDB.podspec
 
 gitPush $tag
 podPush
