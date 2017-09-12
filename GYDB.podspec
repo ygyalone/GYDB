@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.author       = { "GuangYuYang" => "ygy9916730@163.com" }
   s.platform     = :ios, "7.0"
 
-s.source       = { :git => "https://github.com/ygyalone/GYDB.git", :tag => "1.0.3" }
+s.source       = { :git => "https://github.com/ygyalone/GYDB.git", :tag => s.version }
   s.source_files  = "GYDB/GYDB/GYDB/**/*.{h,m}"
   s.public_header_files = "GYDB/GYDB/GYDB/GYDB.h", "GYDB/GYDB/GYDB/GYDatabaseManager/GYDatabaseManager.h", "GYDB/GYDB/GYDB/NSObject+GYDB/NSObject+GYDB.h", "GYDB/GYDB/GYDB/GYDBCondition/GYDBCondition.h", "GYDB/GYDB/GYDB/GYDBError/GYDBError.h"
 

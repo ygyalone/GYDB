@@ -43,7 +43,6 @@ fi
 
 #replace version tag
 sed -i "" "/s.version/s/=.*/= \"$tag\"/g" GYDB.podspec
-sed -i "" "/s.source/s/:tag[^}]*/:tag => \"$tag\" /g" GYDB.podspec
 
 gitPush $tag
 podPush
