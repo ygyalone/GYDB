@@ -45,6 +45,11 @@
     NSString *pk = objc_getAssociatedObject(self, @selector(setPrimaryKeyValue:));
     return pk;
 }
+
+- (void)setGy_primaryKeyValue:(NSString *)gy_primaryKeyValue {
+    [self setPrimaryKeyValue:gy_primaryKeyValue];
+}
+
 - (NSString *)gy_singleLinkID {
     return objc_getAssociatedObject(self, @selector(setSingleLinkID:));
 }
