@@ -107,10 +107,10 @@
     sqlite3_finalize(stmt);
 }
 
-+ (GYDBProperty *)propInProps:(NSArray<GYDBProperty *> *)props byColumnName:(const char*)columnName {
++ (GYDBIvar *)propInProps:(NSArray<GYDBIvar *> *)props byColumnName:(const char*)columnName {
     NSString *cName = [NSString stringWithUTF8String:columnName];
-    __block GYDBProperty *prop;
-    [props enumerateObjectsUsingBlock:^(GYDBProperty * _Nonnull p, NSUInteger idx, BOOL * _Nonnull stop) {
+    __block GYDBIvar *prop;
+    [props enumerateObjectsUsingBlock:^(GYDBIvar * _Nonnull p, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([p.fieldName isEqualToString:cName]) {
             prop = p;
             *stop = YES;
@@ -147,14 +147,14 @@
     //设值
     Class clazz = [obj class];
     NSString *pk = [obj gy_primaryKeyValue];
-    NSArray<GYDBProperty *> *props = [GYDBUtil propertiesWithClazz:clazz];
+    NSArray<GYDBIvar *> *props = [GYDBUtil propertiesWithClazz:clazz];
     for (int i = 0; i < columnCount; i++) {
-        GYDBProperty *prop = [self propInProps:props byColumnName:sqlite3_column_name(stmt, i)];
+        GYDBIvar *prop = [self propInProps:props byColumnName:sqlite3_column_name(stmt, i)];
         if (!props) {
             continue;
         }
         
-        if (prop.type == GYDBPropertyTypeNormal) {
+        if (prop.type == GYDBIvarTypeNormal) {
             if (strcmp(prop.propertyEncode, getEncode(@encode(int))) == 0) {
                 int value = sqlite3_column_int(stmt, i);
                 [obj setValue:@(value) forKey:prop.propertyName];
@@ -180,7 +180,7 @@
                 unsigned int length = sqlite3_column_bytes(stmt, i);
                 [self setValue:[NSData dataWithBytes:bytes length:length] forKey:prop.propertyName toObj:obj];
             }
-        }else if (prop.type == GYDBPropertyTypeOBJ) {
+        }else if (prop.type == GYDBIvarTypeOBJ) {
             NSString *tableName = [NSString stringWithUTF8String:NotNull((const char *)sqlite3_column_text(stmt, i))];
             id value = [self queryObjWithClazz:NSClassFromString([NSString stringWithUTF8String:prop.propertyEncode])
                                      tableName:tableName
@@ -189,7 +189,7 @@
                                   singleLinkID:pk];
             [self setValue:value forKey:prop.propertyName toObj:obj];
             
-        }else if (prop.type == GYDBPropertyTypeOBJs) {
+        }else if (prop.type == GYDBIvarTypeOBJs) {
             NSMutableArray *value = [NSMutableArray array];
             NSString *tableName = [NSString stringWithUTF8String:NotNull((const char *)sqlite3_column_text(stmt, i))];
             [self queryObjWithClazz:[clazz gy_classInArray][prop.propertyName]

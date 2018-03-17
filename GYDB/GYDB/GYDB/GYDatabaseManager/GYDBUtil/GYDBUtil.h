@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <sqlite3.h>
-#import "GYDBProperty.h"
+#import "GYDBIvar.h"
 
 #define getEncode(_encode_) [GYDBUtil getEncode:_encode_]
 
@@ -16,7 +16,7 @@
 ///uuid
 + (NSString *)uuid;
 ///获取所有属性
-+ (NSArray<GYDBProperty *> *)propertiesWithClazz:(Class)clazz;
++ (NSArray<GYDBIvar *> *)propertiesWithClazz:(Class)clazz;
 ///绑定占位符
 + (void)bindObj:(id)obj toColumn:(unsigned int)column inStatement:(sqlite3_stmt *)stmt;
 ///获取类型编码

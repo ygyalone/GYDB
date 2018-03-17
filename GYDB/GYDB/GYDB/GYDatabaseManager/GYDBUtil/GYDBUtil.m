@@ -18,26 +18,26 @@
 }
 
 //获取所有属性
-+ (NSArray<GYDBProperty *> *)propertiesWithClazz:(Class)clazz {
++ (NSArray<GYDBIvar *> *)propertiesWithClazz:(Class)clazz {
     if ([clazz isSubclassOfClass:[NSString class]]) {
-        return @[[GYDBProperty stringProp]];
+        return @[[GYDBIvar stringProp]];
     }else if ([clazz isSubclassOfClass:[NSNumber class]]) {
-        return @[[GYDBProperty numberProp]];
+        return @[[GYDBIvar numberProp]];
     }else if ([clazz isSubclassOfClass:[NSDate class]]) {
-        return @[[GYDBProperty dateProp]];
+        return @[[GYDBIvar dateProp]];
     }else if ([clazz isSubclassOfClass:[NSData class]]) {
-        return @[[GYDBProperty dataProp]];
+        return @[[GYDBIvar dataProp]];
     }
     
-    NSMutableArray<GYDBProperty *> *databaseProperties = [NSMutableArray array];
+    NSMutableArray<GYDBIvar *> *databaseProperties = [NSMutableArray array];
     unsigned int count = 0;
     Ivar *ivars = [clazz gy_getIvars:&count];
     for (int i = 0; i < count; i++) {
-        GYDBProperty *prop = [GYDBProperty propertyWithObjcIvar:ivars[i]];
+        GYDBIvar *prop = [GYDBIvar propertyWithObjcIvar:ivars[i]];
         if ([[clazz gy_customClass].allKeys containsObject:prop.propertyName]) {
-            prop.type = GYDBPropertyTypeOBJ;
+            prop.type = GYDBIvarTypeOBJ;
         }else if ([[clazz gy_classInArray].allKeys containsObject:prop.propertyName]) {
-            prop.type = GYDBPropertyTypeOBJs;
+            prop.type = GYDBIvarTypeOBJs;
         }
         [databaseProperties addObject:prop];
     }

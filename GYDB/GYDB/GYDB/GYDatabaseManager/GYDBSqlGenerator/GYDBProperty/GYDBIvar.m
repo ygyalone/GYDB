@@ -1,15 +1,15 @@
 //
-//  GYDBProperty.m
+//  GYDBIvar.m
 //  GYDB
 //
 //  Created by GuangYu on 17/1/15.
 //  Copyright © 2017年 YGY. All rights reserved.
 //
 
-#import "GYDBProperty.h"
+#import "GYDBIvar.h"
 #import "GYDBUtil.h"
 
-@implementation GYDBProperty
+@implementation GYDBIvar
 
 - (instancetype)initWithPropertyEncode:(const char *)propertyEncode {
     if (self = [super init]) {
@@ -20,45 +20,45 @@
 
 - (instancetype)initWithObjcIvar:(Ivar)ivar {
     if (self = [super init]) {
-        _type = GYDBPropertyTypeNone;
+        _type = GYDBIvarTypeNone;
         [self setObjcIvar:ivar];
     }
     return self;
 }
 
 + (instancetype)stringProp {
-    GYDBProperty *prop = [[self alloc] initWithPropertyEncode:getEncode(@encode(NSString))];
+    GYDBIvar *prop = [[self alloc] initWithPropertyEncode:getEncode(@encode(NSString))];
     [prop setValue:@"self" forKey:@"propertyName"];
     [prop setValue:@"NSString" forKey:@"fieldName"];
     [prop setValue:@"TEXT" forKey:@"databaseType"];
-    [prop setValue:@(GYDBPropertyTypeNormal) forKey:@"type"];
+    [prop setValue:@(GYDBIvarTypeNormal) forKey:@"type"];
     return prop;
 }
 
 + (instancetype)numberProp {
-    GYDBProperty *prop = [[self alloc] initWithPropertyEncode:getEncode(@encode(NSNumber))];
+    GYDBIvar *prop = [[self alloc] initWithPropertyEncode:getEncode(@encode(NSNumber))];
     [prop setValue:@"self" forKey:@"propertyName"];
     [prop setValue:@"NSNumber" forKey:@"fieldName"];
     [prop setValue:@"REAL" forKey:@"databaseType"];
-    [prop setValue:@(GYDBPropertyTypeNormal) forKey:@"type"];
+    [prop setValue:@(GYDBIvarTypeNormal) forKey:@"type"];
     return prop;
 }
 
 + (instancetype)dateProp {
-    GYDBProperty *prop = [[self alloc] initWithPropertyEncode:getEncode(@encode(NSDate))];
+    GYDBIvar *prop = [[self alloc] initWithPropertyEncode:getEncode(@encode(NSDate))];
     [prop setValue:@"self" forKey:@"propertyName"];
     [prop setValue:@"NSDate" forKey:@"fieldName"];
     [prop setValue:@"TIMESTAMP" forKey:@"databaseType"];
-    [prop setValue:@(GYDBPropertyTypeNormal) forKey:@"type"];
+    [prop setValue:@(GYDBIvarTypeNormal) forKey:@"type"];
     return prop;
 }
 
 + (instancetype)dataProp {
-    GYDBProperty *prop = [[self alloc] initWithPropertyEncode:getEncode(@encode(NSData))];
+    GYDBIvar *prop = [[self alloc] initWithPropertyEncode:getEncode(@encode(NSData))];
     [prop setValue:@"self" forKey:@"propertyName"];
     [prop setValue:@"NSData" forKey:@"fieldName"];
     [prop setValue:@"BLOB" forKey:@"databaseType"];
-    [prop setValue:@(GYDBPropertyTypeNormal) forKey:@"type"];
+    [prop setValue:@(GYDBIvarTypeNormal) forKey:@"type"];
     return prop;
 }
 
@@ -80,12 +80,12 @@
     const char *type = ivar_getTypeEncoding(ivar);
     _databaseType = [self databaseTypeWithIvarType:type];
     if (_databaseType.length) {
-        _type = GYDBPropertyTypeNormal;
+        _type = GYDBIvarTypeNormal;
     }
 }
 
 - (NSString *)databaseTypeWithIvarType:(const char *)type {
-    //const char *type = getEncode(attr.value);
+    type = getEncode(type);
     if (!strcmp(type, getEncode(@encode(char))) ||
         !strcmp(type, getEncode(@encode(short))) ||
         !strcmp(type, getEncode(@encode(int))) ||

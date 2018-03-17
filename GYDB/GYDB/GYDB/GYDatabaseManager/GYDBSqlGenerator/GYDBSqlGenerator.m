@@ -35,9 +35,9 @@
     
     if (!clazz) return;
     [clazzArr addObject:NSStringFromClass(clazz)];
-    NSArray<GYDBProperty *> *props = [GYDBUtil propertiesWithClazz:clazz];
+    NSArray<GYDBIvar *> *props = [GYDBUtil propertiesWithClazz:clazz];
     NSMutableString *columns = [NSMutableString string];
-    NSMutableArray<GYDBProperty *> *typeUnknowProps = [NSMutableArray array];
+    NSMutableArray<GYDBIvar *> *typeUnknowProps = [NSMutableArray array];
     
     //默认字段
     [columns appendFormat:@"%@ text primary key", kColumnPK];
@@ -46,7 +46,7 @@
     [columns appendFormat:@",%@ text", kColumnPropName];
     
     //基本属性字段
-    [props enumerateObjectsUsingBlock:^(GYDBProperty * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [props enumerateObjectsUsingBlock:^(GYDBIvar * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj.databaseType.length) {
             [columns appendFormat:@",%@ %@", obj.fieldName, obj.databaseType];
         }else {
@@ -56,10 +56,10 @@
     }];
     
     //自定义对象字段
-    [typeUnknowProps enumerateObjectsUsingBlock:^(GYDBProperty * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (obj.type == GYDBPropertyTypeOBJ || obj.type == GYDBPropertyTypeOBJs) {
+    [typeUnknowProps enumerateObjectsUsingBlock:^(GYDBIvar * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.type == GYDBIvarTypeOBJ || obj.type == GYDBIvarTypeOBJs) {
             Class propClass;
-            if (obj.type == GYDBPropertyTypeOBJ) {
+            if (obj.type == GYDBIvarTypeOBJ) {
                 propClass = [clazz gy_customClass][obj.propertyName];
             }else {
                 propClass = [clazz gy_classInArray][obj.propertyName];
@@ -86,10 +86,10 @@
 
 //update table
 + (NSArray<GYSql *> *)sqlsForUpdateTableWithClazz:(Class)clazz oldColumns:(NSArray<NSString *> *)oldColumns; {
-    NSArray<GYDBProperty *> *props = [GYDBUtil propertiesWithClazz:clazz];
-    NSMutableArray<GYDBProperty *> *mprops = [NSMutableArray arrayWithArray:props];
+    NSArray<GYDBIvar *> *props = [GYDBUtil propertiesWithClazz:clazz];
+    NSMutableArray<GYDBIvar *> *mprops = [NSMutableArray arrayWithArray:props];
     NSMutableArray *oldProps = [NSMutableArray array];
-    for (GYDBProperty *prop in mprops) {
+    for (GYDBIvar *prop in mprops) {
         if ([oldColumns containsObject:prop.fieldName]) {
             [oldProps addObject:prop];
         }
@@ -98,7 +98,7 @@
     NSString *tableName = [clazz gy_className];
     [mprops removeObjectsInArray:oldProps];
     NSMutableArray *sqls = [NSMutableArray array];
-    [mprops enumerateObjectsUsingBlock:^(GYDBProperty * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [mprops enumerateObjectsUsingBlock:^(GYDBIvar * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSMutableString *sqlString = nil;
         if (obj.databaseType.length) {
             sqlString = [NSMutableString stringWithFormat:@"alter table %@ add column %@ %@", tableName, obj.fieldName, obj.databaseType];
@@ -112,7 +112,7 @@
 }
 
 #pragma mark - insert
-+ (id)valueOfObj:(id)obj forProp:(GYDBProperty *)prop {
++ (id)valueOfObj:(id)obj forProp:(GYDBIvar *)prop {
     id value = [obj valueForKey:prop.propertyName];
     if (!value) {
         value = [NSNull null];
@@ -129,8 +129,8 @@
     
     if (!obj) return nil;
     [addedObjs addObject:obj];
-    NSArray<GYDBProperty *> *props = [GYDBUtil propertiesWithClazz:[obj class]];
-    NSMutableArray<GYDBProperty *> *typeUnknowProps = [NSMutableArray array];
+    NSArray<GYDBIvar *> *props = [GYDBUtil propertiesWithClazz:[obj class]];
+    NSMutableArray<GYDBIvar *> *typeUnknowProps = [NSMutableArray array];
     NSString *tableName = [[obj class] gy_className];
     NSMutableString *columns = [NSMutableString string];
     NSMutableString *placeholders = [NSMutableString string];
@@ -161,17 +161,17 @@
     }
     
     //基本属性字段
-    [props enumerateObjectsUsingBlock:^(GYDBProperty * _Nonnull prop, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (prop.type != GYDBPropertyTypeNone) {
+    [props enumerateObjectsUsingBlock:^(GYDBIvar * _Nonnull prop, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (prop.type != GYDBIvarTypeNone) {
             [columns appendFormat:@",%@", prop.fieldName];
             [placeholders appendString:@",?"];
         }
         
-        if (prop.type == GYDBPropertyTypeNormal) {
+        if (prop.type == GYDBIvarTypeNormal) {
             [args addObject:[self valueOfObj:obj forProp:prop]];
-        }else if (prop.type == GYDBPropertyTypeOBJ) {
+        }else if (prop.type == GYDBIvarTypeOBJ) {
             [args addObject:[NSString stringWithUTF8String:prop.propertyEncode]];
-        }else if (prop.type == GYDBPropertyTypeOBJs) {
+        }else if (prop.type == GYDBIvarTypeOBJs) {
             [args addObject:NotNil(NSStringFromClass([[obj class] gy_classInArray][prop.propertyName]))];
         }
         
@@ -180,14 +180,14 @@
     NSMutableString *insertSql = [NSMutableString stringWithFormat:@"insert into %@ (%@) values(%@)", tableName, columns, placeholders];
     [sqls addObject:[[GYSql alloc] initWithSqlString:insertSql args:args]];
     
-    [typeUnknowProps enumerateObjectsUsingBlock:^(GYDBProperty * _Nonnull prop, NSUInteger idx, BOOL * _Nonnull stop) {
+    [typeUnknowProps enumerateObjectsUsingBlock:^(GYDBIvar * _Nonnull prop, NSUInteger idx, BOOL * _Nonnull stop) {
         //递归
-        if (prop.type == GYDBPropertyTypeOBJ) {
+        if (prop.type == GYDBIvarTypeOBJ) {
             id customObj = [obj valueForKey:prop.propertyName];
             if (customObj && ![addedObjs containsObject:customObj]) {
                 [self sqlsForInsertObj:customObj sqlsArray:sqls addedObjs:addedObjs singleLinkID:pk multiLinkID:nil propName:prop.propertyName];
             }
-        }else if (prop.type == GYDBPropertyTypeOBJs) {
+        }else if (prop.type == GYDBIvarTypeOBJs) {
             NSArray *customObjs = [obj valueForKey:prop.propertyName];
             if (![customObjs conformsToProtocol:@protocol(NSFastEnumeration)]) return;
             [customObjs enumerateObjectsUsingBlock:^(id  _Nonnull customObj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -222,15 +222,15 @@
     NSString *tableName = [[obj class] gy_className];
     sql.sqlString = [NSString stringWithFormat:@"delete from %@%@", tableName, condition.conditionString];
     
-    NSArray<GYDBProperty *> *props = [GYDBUtil propertiesWithClazz:[obj class]];
-    [props enumerateObjectsUsingBlock:^(GYDBProperty * _Nonnull prop, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (prop.type == GYDBPropertyTypeOBJ) {
+    NSArray<GYDBIvar *> *props = [GYDBUtil propertiesWithClazz:[obj class]];
+    [props enumerateObjectsUsingBlock:^(GYDBIvar * _Nonnull prop, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (prop.type == GYDBIvarTypeOBJ) {
             //递归
             id customObj = [obj valueForKey:prop.propertyName];
             GYDBCondition * c = [GYDBCondition condition].Where(kColumnSingleLinkID).Eq([obj gy_primaryKeyValue]);
             [self sqlsForDeleteObj:customObj sqlsArray:array deletedObjs:deletedObjs condition:c];
             
-        }else if (prop.type == GYDBPropertyTypeOBJs) {
+        }else if (prop.type == GYDBIvarTypeOBJs) {
             NSArray *customObjs = [obj valueForKey:prop.propertyName];
             [customObjs enumerateObjectsUsingBlock:^(id  _Nonnull customObj, NSUInteger idx, BOOL * _Nonnull stop) {
                 //递归
@@ -303,10 +303,10 @@
 }
 
 #pragma mark - update
-+ (NSArray<GYDBProperty *> *)enabledPropsForObj:(id)obj columns:(NSArray<NSString *> *)columns {
-    NSArray<GYDBProperty *> *props = [GYDBUtil propertiesWithClazz:[obj class]];
-    NSMutableArray<GYDBProperty *> *enabledProps = [NSMutableArray array];
-    [props enumerateObjectsUsingBlock:^(GYDBProperty * _Nonnull prop, NSUInteger idx, BOOL * _Nonnull stop) {
++ (NSArray<GYDBIvar *> *)enabledPropsForObj:(id)obj columns:(NSArray<NSString *> *)columns {
+    NSArray<GYDBIvar *> *props = [GYDBUtil propertiesWithClazz:[obj class]];
+    NSMutableArray<GYDBIvar *> *enabledProps = [NSMutableArray array];
+    [props enumerateObjectsUsingBlock:^(GYDBIvar * _Nonnull prop, NSUInteger idx, BOOL * _Nonnull stop) {
         if (!columns.count || [columns containsObject:prop.propertyName]) {
             [enabledProps addObject:prop];
         }
@@ -329,22 +329,22 @@
     NSString *condition = [GYDBCondition condition].Where(kColumnPK).Eq(pk).conditionString;
     
     NSMutableArray *args = [NSMutableArray array];
-    NSArray<GYDBProperty *> *enabledProps = [self enabledPropsForObj:obj columns:columns];
+    NSArray<GYDBIvar *> *enabledProps = [self enabledPropsForObj:obj columns:columns];
     NSMutableString *keyValuesString = [NSMutableString string];
     
-    [enabledProps enumerateObjectsUsingBlock:^(GYDBProperty * _Nonnull prop, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (prop.type == GYDBPropertyTypeNormal) {
+    [enabledProps enumerateObjectsUsingBlock:^(GYDBIvar * _Nonnull prop, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (prop.type == GYDBIvarTypeNormal) {
             [keyValuesString appendFormat:@" %@ = ?,", prop.propertyName];
             id value = [obj valueForKey:prop.propertyName];
             if (!value) {
                 value = [NSNull null];
             }
             [args addObject:value];
-        }else if (prop.type == GYDBPropertyTypeOBJ) {
+        }else if (prop.type == GYDBIvarTypeOBJ) {
             //递归
             id customObj = [obj valueForKey:prop.propertyName];
             [self sqlsForUpdateObj:customObj withColumns:nil sqlsArray:array updatedObjs:updatedObjs];
-        }else if (prop.type == GYDBPropertyTypeOBJs) {
+        }else if (prop.type == GYDBIvarTypeOBJs) {
             //递归
             id customObjs = [obj valueForKey:prop.propertyName];
             [customObjs enumerateObjectsUsingBlock:^(id  _Nonnull customObj, NSUInteger idx, BOOL * _Nonnull stop) {

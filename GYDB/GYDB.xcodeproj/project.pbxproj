@@ -19,7 +19,7 @@
 		5A5000B31E6BD26A0059132F /* GYDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5000931E6BD26A0059132F /* GYDatabaseManager.m */; };
 		5A5000B41E6BD26A0059132F /* GYDBErrorGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5000961E6BD26A0059132F /* GYDBErrorGenerator.m */; };
 		5A5000B51E6BD26A0059132F /* GYDBQueryHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5000991E6BD26A0059132F /* GYDBQueryHandler.m */; };
-		5A5000B71E6BD26A0059132F /* GYDBProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5000A01E6BD26A0059132F /* GYDBProperty.m */; };
+		5A5000B71E6BD26A0059132F /* GYDBIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5000A01E6BD26A0059132F /* GYDBIvar.m */; };
 		5A5000B81E6BD26A0059132F /* GYDBSqlGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5000A21E6BD26A0059132F /* GYDBSqlGenerator.m */; };
 		5A5000B91E6BD26A0059132F /* GYSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5000A51E6BD26A0059132F /* GYSql.m */; };
 		5A5000BA1E6BD26A0059132F /* NSObject+GYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5000A81E6BD26A0059132F /* NSObject+GYExtension.m */; };
@@ -72,8 +72,8 @@
 		5A5000961E6BD26A0059132F /* GYDBErrorGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYDBErrorGenerator.m; sourceTree = "<group>"; };
 		5A5000981E6BD26A0059132F /* GYDBQueryHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYDBQueryHandler.h; sourceTree = "<group>"; };
 		5A5000991E6BD26A0059132F /* GYDBQueryHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYDBQueryHandler.m; sourceTree = "<group>"; };
-		5A50009F1E6BD26A0059132F /* GYDBProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYDBProperty.h; sourceTree = "<group>"; };
-		5A5000A01E6BD26A0059132F /* GYDBProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYDBProperty.m; sourceTree = "<group>"; };
+		5A50009F1E6BD26A0059132F /* GYDBIvar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYDBIvar.h; sourceTree = "<group>"; };
+		5A5000A01E6BD26A0059132F /* GYDBIvar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYDBIvar.m; sourceTree = "<group>"; };
 		5A5000A11E6BD26A0059132F /* GYDBSqlGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYDBSqlGenerator.h; sourceTree = "<group>"; };
 		5A5000A21E6BD26A0059132F /* GYDBSqlGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYDBSqlGenerator.m; sourceTree = "<group>"; };
 		5A5000A41E6BD26A0059132F /* GYSql.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYSql.h; sourceTree = "<group>"; };
@@ -246,8 +246,8 @@
 		5A50009E1E6BD26A0059132F /* GYDBProperty */ = {
 			isa = PBXGroup;
 			children = (
-				5A50009F1E6BD26A0059132F /* GYDBProperty.h */,
-				5A5000A01E6BD26A0059132F /* GYDBProperty.m */,
+				5A50009F1E6BD26A0059132F /* GYDBIvar.h */,
+				5A5000A01E6BD26A0059132F /* GYDBIvar.m */,
 			);
 			path = GYDBProperty;
 			sourceTree = "<group>";
@@ -449,7 +449,7 @@
 				5A5000BB1E6BD26A0059132F /* GYDBUtil.m in Sources */,
 				5A5000B81E6BD26A0059132F /* GYDBSqlGenerator.m in Sources */,
 				573B59E81E7013F3005C9F03 /* GYDBCondition.m in Sources */,
-				5A5000B71E6BD26A0059132F /* GYDBProperty.m in Sources */,
+				5A5000B71E6BD26A0059132F /* GYDBIvar.m in Sources */,
 				5A5000BC1E6BD26A0059132F /* GYDBError.m in Sources */,
 				5A5000B31E6BD26A0059132F /* GYDatabaseManager.m in Sources */,
 				5A50005F1E6BD22F0059132F /* main.m in Sources */,
