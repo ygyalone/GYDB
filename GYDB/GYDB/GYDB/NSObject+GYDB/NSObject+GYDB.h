@@ -35,14 +35,14 @@ typedef void(^GYArrayBlock)(NSArray *  result, GYDBError *error);
 
  @return 自定义主键值
  */
-- (NSString *)gy_customPrimaryKeyValue;
+- (NSString *)gy_customPrimaryKeyValue DEPRECATED_MSG_ATTRIBUTE("use gy_primaryKeyValue instead!");
 
 /**
  主键值
 
  @return 主键值,存入DB的对象才有值,否则为nil
  */
-- (NSString *)gy_primaryKeyValue;
+@property (nonatomic, copy) NSString *gy_primaryKeyValue;
 
 /**
  一对一外键值

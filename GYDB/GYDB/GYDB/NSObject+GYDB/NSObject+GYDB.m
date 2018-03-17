@@ -43,10 +43,7 @@
 
 - (NSString *)gy_primaryKeyValue {
     NSString *pk = objc_getAssociatedObject(self, @selector(setPrimaryKeyValue:));
-    if (pk.length) {
-        return pk;
-    }
-    return [self gy_customPrimaryKeyValue];
+    return pk;
 }
 - (NSString *)gy_singleLinkID {
     return objc_getAssociatedObject(self, @selector(setSingleLinkID:));
@@ -54,10 +51,6 @@
 
 - (NSString *)gy_multiLinkID {
     return objc_getAssociatedObject(self, @selector(setMultiLinkID:));
-}
-
-- (NSString *)gy_customPrimaryKeyValue {
-    return nil;
 }
 
 #pragma mark - table

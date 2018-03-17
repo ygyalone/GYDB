@@ -88,10 +88,6 @@
              @"pets1":[Pet class],
              @"pets2":[Pet class]};
 }
-- (NSString *)gy_customPrimaryKeyValue {
-    return nil;
-    //return @"456";
-}
 
 @end
 

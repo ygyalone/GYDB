@@ -142,10 +142,9 @@
     [columns appendFormat:@",%@",kColumnMultiLinkID];
     [columns appendFormat:@",%@",kColumnPropName];
     
-    NSString *customPK = [obj gy_customPrimaryKeyValue];
     NSString *pk = [obj gy_primaryKeyValue];
     if (!pk.length) {
-        pk = customPK.length?customPK:[GYDBUtil uuid];
+        pk = [GYDBUtil uuid];
     }
     [args addObject:pk];
     [args addObject:NotNil(singleLinkID)];

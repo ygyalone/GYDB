@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 
 s.source       = { :git => "https://github.com/ygyalone/GYDB.git", :tag => s.version }
   s.source_files  = "GYDB/GYDB/GYDB/**/*.{h,m}"
-  s.public_header_files = "GYDB/GYDB/GYDB/GYDB.h", "GYDB/GYDB/GYDB/GYDatabaseManager/GYDatabaseManager.h", "GYDB/GYDB/GYDB/NSObject+GYDB/NSObject+GYDB.h", "GYDB/GYDB/GYDB/GYDBCondition/GYDBCondition.h", "GYDB/GYDB/GYDB/GYDBError/GYDBError.h"
+  s.public_header_files = "GYDB/GYDB/GYDB/GYDB.h"
 
   s.library   = "sqlite3"
 
