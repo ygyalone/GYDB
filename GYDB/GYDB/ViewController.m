@@ -12,6 +12,7 @@
 @interface Person : NSObject
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, assign) NSInteger age;
+@property (nonatomic, assign) NSInteger height;
 @end
 
 @implementation Person
@@ -25,6 +26,7 @@
 }
 
 @end
+
 
 @interface ViewController ()
 

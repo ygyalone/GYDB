@@ -48,9 +48,9 @@
     //基本属性字段
     [props enumerateObjectsUsingBlock:^(GYDBProperty * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (obj.databaseType.length) {
-            [columns appendFormat:@",%@ %@", obj.databaseName, obj.databaseType];
+            [columns appendFormat:@",%@ %@", obj.fieldName, obj.databaseType];
         }else {
-            [columns appendFormat:@",%@ text", obj.databaseName];
+            [columns appendFormat:@",%@ text", obj.fieldName];
             [typeUnknowProps addObject:obj];
         }
     }];
@@ -90,7 +90,7 @@
     NSMutableArray<GYDBProperty *> *mprops = [NSMutableArray arrayWithArray:props];
     NSMutableArray *oldProps = [NSMutableArray array];
     for (GYDBProperty *prop in mprops) {
-        if ([oldColumns containsObject:prop.databaseName]) {
+        if ([oldColumns containsObject:prop.fieldName]) {
             [oldProps addObject:prop];
         }
     }
@@ -101,9 +101,9 @@
     [mprops enumerateObjectsUsingBlock:^(GYDBProperty * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         NSMutableString *sqlString = nil;
         if (obj.databaseType.length) {
-            sqlString = [NSMutableString stringWithFormat:@"alter table %@ add column %@ %@", tableName, obj.databaseName, obj.databaseType];
+            sqlString = [NSMutableString stringWithFormat:@"alter table %@ add column %@ %@", tableName, obj.fieldName, obj.databaseType];
         }else {
-            sqlString = [NSMutableString stringWithFormat:@"alter table %@ add column %@ TEXT", tableName, obj.databaseName];
+            sqlString = [NSMutableString stringWithFormat:@"alter table %@ add column %@ TEXT", tableName, obj.fieldName];
         }
         GYSql *sql = [[GYSql alloc] initWithSqlString:sqlString args:nil];
         [sqls addObject:sql];
@@ -163,7 +163,7 @@
     //基本属性字段
     [props enumerateObjectsUsingBlock:^(GYDBProperty * _Nonnull prop, NSUInteger idx, BOOL * _Nonnull stop) {
         if (prop.type != GYDBPropertyTypeNone) {
-            [columns appendFormat:@",%@", prop.databaseName];
+            [columns appendFormat:@",%@", prop.fieldName];
             [placeholders appendString:@",?"];
         }
         

@@ -12,5 +12,6 @@
 @interface NSObject (GYExtension)
 + (NSString *)gy_className;
 - (NSString *)gy_className;
-+ (objc_property_t *)gy_propertiesCount:(unsigned int *)outCount;
++ (objc_property_t *)gy_getProperties:(unsigned int *)outCount;
++ (Ivar *)gy_getIvars:(unsigned int *)outCount;
 @end

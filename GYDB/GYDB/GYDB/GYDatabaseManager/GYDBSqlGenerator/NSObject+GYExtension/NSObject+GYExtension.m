@@ -27,8 +27,12 @@
     return NSStringFromClass([self class]);
 }
 
-+ (objc_property_t *)gy_propertiesCount:(unsigned int *)outCount {
++ (objc_property_t *)gy_getProperties:(unsigned int *)outCount; {
     return class_copyPropertyList([self class], outCount);
+}
+
++ (Ivar *)gy_getIvars:(unsigned int *)outCount {
+    return class_copyIvarList([self class], outCount);
 }
 
 @end

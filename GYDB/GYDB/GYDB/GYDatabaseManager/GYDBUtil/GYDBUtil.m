@@ -31,9 +31,9 @@
     
     NSMutableArray<GYDBProperty *> *databaseProperties = [NSMutableArray array];
     unsigned int count = 0;
-    objc_property_t *properties = [clazz gy_propertiesCount:&count];
+    Ivar *ivars = [clazz gy_getIvars:&count];
     for (int i = 0; i < count; i++) {
-        GYDBProperty *prop = [GYDBProperty propertyWithObjcProp:properties[i]];
+        GYDBProperty *prop = [GYDBProperty propertyWithObjcIvar:ivars[i]];
         if ([[clazz gy_customClass].allKeys containsObject:prop.propertyName]) {
             prop.type = GYDBPropertyTypeOBJ;
         }else if ([[clazz gy_classInArray].allKeys containsObject:prop.propertyName]) {
@@ -41,7 +41,7 @@
         }
         [databaseProperties addObject:prop];
     }
-    free(properties);
+    free(ivars);
     return databaseProperties;
 }
 

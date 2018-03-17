@@ -21,7 +21,7 @@ typedef enum GYDBPropertyType {
 
 @property (nonatomic, readonly) NSString *propertyName;     ///<obj中属性名
 @property (nonatomic, readonly) const char *propertyEncode; ///<编码类型
-@property (nonatomic, readonly) NSString *databaseName;     ///<字段名
+@property (nonatomic, readonly) NSString *fieldName;        ///<字段名
 @property (nonatomic, readonly) NSString *databaseType;     ///<字段类型
 @property (nonatomic, assign) GYDBPropertyType type;        ///<属性类型
 
@@ -31,6 +31,7 @@ typedef enum GYDBPropertyType {
 + (instancetype)dateProp;
 + (instancetype)dataProp;
 
-+ (instancetype)propertyWithObjcProp:(objc_property_t)prop;
+//+ (instancetype)propertyWithObjcProp:(objc_property_t)prop;
++ (instancetype)propertyWithObjcIvar:(Ivar)ivar;
 
 @end

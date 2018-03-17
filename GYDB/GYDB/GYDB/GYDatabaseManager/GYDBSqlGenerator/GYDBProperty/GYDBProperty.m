@@ -18,10 +18,10 @@
     return self;
 }
 
-- (instancetype)initWithObjcProp:(objc_property_t)prop {
+- (instancetype)initWithObjcIvar:(Ivar)ivar {
     if (self = [super init]) {
         _type = GYDBPropertyTypeNone;
-        [self setObjcProp:prop];
+        [self setObjcIvar:ivar];
     }
     return self;
 }
@@ -29,7 +29,7 @@
 + (instancetype)stringProp {
     GYDBProperty *prop = [[self alloc] initWithPropertyEncode:getEncode(@encode(NSString))];
     [prop setValue:@"self" forKey:@"propertyName"];
-    [prop setValue:@"NSString" forKey:@"databaseName"];
+    [prop setValue:@"NSString" forKey:@"fieldName"];
     [prop setValue:@"TEXT" forKey:@"databaseType"];
     [prop setValue:@(GYDBPropertyTypeNormal) forKey:@"type"];
     return prop;
@@ -38,7 +38,7 @@
 + (instancetype)numberProp {
     GYDBProperty *prop = [[self alloc] initWithPropertyEncode:getEncode(@encode(NSNumber))];
     [prop setValue:@"self" forKey:@"propertyName"];
-    [prop setValue:@"NSNumber" forKey:@"databaseName"];
+    [prop setValue:@"NSNumber" forKey:@"fieldName"];
     [prop setValue:@"REAL" forKey:@"databaseType"];
     [prop setValue:@(GYDBPropertyTypeNormal) forKey:@"type"];
     return prop;
@@ -47,7 +47,7 @@
 + (instancetype)dateProp {
     GYDBProperty *prop = [[self alloc] initWithPropertyEncode:getEncode(@encode(NSDate))];
     [prop setValue:@"self" forKey:@"propertyName"];
-    [prop setValue:@"NSDate" forKey:@"databaseName"];
+    [prop setValue:@"NSDate" forKey:@"fieldName"];
     [prop setValue:@"TIMESTAMP" forKey:@"databaseType"];
     [prop setValue:@(GYDBPropertyTypeNormal) forKey:@"type"];
     return prop;
@@ -56,40 +56,36 @@
 + (instancetype)dataProp {
     GYDBProperty *prop = [[self alloc] initWithPropertyEncode:getEncode(@encode(NSData))];
     [prop setValue:@"self" forKey:@"propertyName"];
-    [prop setValue:@"NSData" forKey:@"databaseName"];
+    [prop setValue:@"NSData" forKey:@"fieldName"];
     [prop setValue:@"BLOB" forKey:@"databaseType"];
     [prop setValue:@(GYDBPropertyTypeNormal) forKey:@"type"];
     return prop;
 }
 
-+ (instancetype)propertyWithObjcProp:(objc_property_t)prop {
-    return [[self alloc] initWithObjcProp:prop];
++ (instancetype)propertyWithObjcIvar:(Ivar)ivar {
+    return [[self alloc] initWithObjcIvar:ivar];
 }
 
-- (void)setObjcProp:(objc_property_t)prop {
-    _propertyName = [NSString stringWithUTF8String:property_getName(prop)];
-    _databaseName = [NSString stringWithUTF8String:property_getName(prop)];
-    [self setTypeWithProp:prop];
-}
-
-- (void)setTypeWithProp:(objc_property_t)prop{
-    unsigned int outCount;
-    objc_property_attribute_t *attrs = property_copyAttributeList(prop, &outCount);
-    for (int i = 0; i < outCount; i++) {
-        objc_property_attribute_t attr = attrs[i];
-        if (strcmp(attr.name, "T") == 0) {
-            _databaseType = [self databaseTypeWithAttr:attr];
-            if (_databaseType.length) {
-                _type = GYDBPropertyTypeNormal;
-            }
-            break;
-        }
+- (void)setObjcIvar:(Ivar)ivar {
+    NSString *name = [NSString stringWithUTF8String:ivar_getName(ivar)];
+    if ([name hasPrefix:@"_"]) {
+        name = [name substringFromIndex:1];
     }
-    free(attrs);
+    _propertyName = name;
+    _fieldName = name;
+    [self setTypeWithIvar:ivar];
 }
 
-- (NSString *)databaseTypeWithAttr:(objc_property_attribute_t)attr {
-    const char *type = getEncode(attr.value);
+- (void)setTypeWithIvar:(Ivar)ivar{
+    const char *type = ivar_getTypeEncoding(ivar);
+    _databaseType = [self databaseTypeWithIvarType:type];
+    if (_databaseType.length) {
+        _type = GYDBPropertyTypeNormal;
+    }
+}
+
+- (NSString *)databaseTypeWithIvarType:(const char *)type {
+    //const char *type = getEncode(attr.value);
     if (!strcmp(type, getEncode(@encode(char))) ||
         !strcmp(type, getEncode(@encode(short))) ||
         !strcmp(type, getEncode(@encode(int))) ||

@@ -111,7 +111,7 @@
     NSString *cName = [NSString stringWithUTF8String:columnName];
     __block GYDBProperty *prop;
     [props enumerateObjectsUsingBlock:^(GYDBProperty * _Nonnull p, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([p.databaseName isEqualToString:cName]) {
+        if ([p.fieldName isEqualToString:cName]) {
             prop = p;
             *stop = YES;
         }
