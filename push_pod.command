@@ -1,4 +1,6 @@
 #!/bin/bash
+cd $(dirname "$0")
+
 #push changes to remote git lib
 function gitPush() {
     git add -A
@@ -42,7 +44,7 @@ then
 fi
 
 #replace version tag
-sed -i "" "/s.version/s/=.*/= \"$tag\"/g" GYDB.podspec
+sed -i "" "s/\(s.version *= *\)\(\".*\"\)/\1\"$tag\"/g" GYDB.podspec
 
 gitPush $tag
 podPush
