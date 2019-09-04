@@ -11,8 +11,6 @@ GitHub: [https://github.com/ygyalone](https://github.com/ygyalone)
 
 Feedback: [ygy9916730@163.com](mailto:ygy9916730@163.com)
 
-[Demo下载(GYDB基本使用请参考工程的单元测试)](https://github.com/ygyalone/GYDB)
-
 
 # 描述
 > 1.采用分类的模式,方便基于NSObject的类或者对象的数据库操作.
