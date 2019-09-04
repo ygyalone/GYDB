@@ -14,7 +14,7 @@ Feedback: [ygy9916730@163.com](mailto:ygy9916730@163.com)
 [Demo下载(GYDB基本使用请参考工程的单元测试)](https://github.com/ygyalone/GYDB)
 
 遇到问题欢迎issue或者邮件,感谢使用GYDB.
-# 描述(description)
+# 描述
 > 1.采用分类的模式,方便基于NSObject的类或者对象的数据库操作.
 > 
 > 2.关于线程安全:所有数据库操作都放在一个并发量为1的操作队列中,保证多线程使用的安全.
@@ -28,7 +28,7 @@ Feedback: [ygy9916730@163.com](mailto:ygy9916730@163.com)
 >* NSDate.
 >* NSData.
 
-# 目录(index)
+# 目录
 >* [安装(install)](#install_ID)
 >* [基本配置(config)](#config_ID)
 >* [表操作(table operate)](#tableOp_ID)
@@ -41,7 +41,7 @@ Feedback: [ygy9916730@163.com](mailto:ygy9916730@163.com)
 >* [链式条件配置(condition)](#condition_ID)
 
 <a id="install_ID"></a>
-# 安装(install)
+# 安装
 ```
 pod 'GYDB'
 ```
@@ -54,7 +54,7 @@ pod repo update
 >注意:不使用pod安装的小伙伴需要手动添加libsqlite3.tbd的依赖
 
 <a id="config_ID"></a>
-# 基本配置(config)
+# 基本配置
 ## 通用配置
 > 是否开启日志(默认开启):
 
@@ -112,7 +112,7 @@ DBManager.completionQueue = dispatch_get_main_queue();
 }
 ```
 <a id="tableOp_ID"></a>
-# 表操作(table operate)
+# 表操作
 > 检查表是否存在
 
 ```objc
@@ -137,7 +137,7 @@ BOOL exist = [Person gy_tableExistsWithError:nil];
 [Person gy_updateTable];
 ```
 <a id="insert_ID"></a>
-# 插入(insert)
+# 插入
 ## 插入单条数据
 > 同步方法:
 
@@ -173,7 +173,7 @@ GYDBError *error = [[GYDatabaseManager sharedManager] insertObjs:persons];
 ```
 
 <a id="delete_ID"></a>
-# 删除(delete)
+# 删除
 ## 根据对象删除
 >同步方法:
 
@@ -212,7 +212,7 @@ GYDBError *error = [[GYDatabaseManager sharedManager] insertObjs:persons];
 }];
 ```
 <a id="query_ID"></a>
-# 查询(query)
+# 查询
 >同步方法:
 
 ```objc
@@ -229,7 +229,7 @@ GYDBError *error = [[GYDatabaseManager sharedManager] insertObjs:persons];
 }];
 ```
 <a id="update_ID"></a>
-# 修改(update)
+# 修改
 >同步方法:
 
 ```objc
@@ -247,7 +247,7 @@ GYDBError *error = [[GYDatabaseManager sharedManager] insertObjs:persons];
 ```
 
 <a id="save_ID"></a>
-# 保存(save)
+# 保存
 >如果对象未入库,save方法等于insert方法.否则等于update方法.
 >
 >同步方法:
@@ -264,7 +264,7 @@ GYDBError *error = [[GYDatabaseManager sharedManager] insertObjs:persons];
 ```
 
 <a id="other_ID"></a>
-# 其它操作(other)
+# 其它操作
 >获取当前打开的数据库路径,没有则返回nil
 
 ```objc
@@ -281,7 +281,7 @@ NSInteger rowCount2 = [Person gy_countWithCondition:DBCondition.Where_P(age).GtO
 ```
 
 <a id="condition_ID"></a>
-# 链式条件配置(condition)
+# 链式条件配置
 >使用链式语法能够方便地配置执行Sql操作时的条件.举例:
 
 ```objc
