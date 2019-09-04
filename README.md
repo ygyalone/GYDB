@@ -1,11 +1,11 @@
-# iOS database framework based on sqlite3(基于sqlite3的iOS数据库存储框架)
+# 基于sqlite的iOS数据存储框架
 
-在iOS开发中，如果使用到数据库来存储数据，使用比较多的是FMDB或者CoreData，或者直接使用sqlite3。但是各种配置比较麻烦，或者需要自己写sql语句。存储一个对象，为什么需要这么麻烦？如果使用GYDB，类似存储对象的操作只要写:
+在iOS开发中，如果使用到数据库来存储数据，使用比较多的是FMDB或者CoreData，或者直接使用sqlite。但是各种配置比较麻烦，或者需要自己写sql语句。存储一个对象，为什么需要这么麻烦？如果使用GYDB，类似存储对象的操作只要写:
 
 ```
 [obj gy_insert];
 ```
-就能插入一条数据到表中，就是这么简单方便。觉得不错的话可以在github上星一下。
+就能插入一条数据到表中，就是这么简单方便。
 
 GitHub: [https://github.com/ygyalone](https://github.com/ygyalone)
 
@@ -13,7 +13,7 @@ Feedback: [ygy9916730@163.com](mailto:ygy9916730@163.com)
 
 [Demo下载(GYDB基本使用请参考工程的单元测试)](https://github.com/ygyalone/GYDB)
 
-遇到问题欢迎issue或者邮件,感谢使用GYDB.
+
 # 描述
 > 1.采用分类的模式,方便基于NSObject的类或者对象的数据库操作.
 > 
